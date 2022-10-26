@@ -10,7 +10,7 @@ import { Bike } from '@models/bike.model';
 export class BikeService {
   constructor(private http: HttpClient) {}
 
-  searchBikes(pageNumber: number, itemsPerPage: number, location: string): Observable<Bike[]> {
+  searchBikes({ pageNumber = 1, itemsPerPage = 9, location = '' }): Observable<Bike[]> {
     let params = new HttpParams();
     params = params.append('page', String(pageNumber));
     params = params.append('per_page', String(itemsPerPage));
