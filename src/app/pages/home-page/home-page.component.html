@@ -1,22 +1,24 @@
-<div class="container">
-  <app-search-input-section
-    (clickSearchButtonEvent)="onSearchButtonClick($event)"></app-search-input-section>
+<app-spinner [spin]="isLoading">
+  <div class="container">
+    <app-search-input-section
+      (clickSearchButtonEvent)="onSearchButtonClick($event)"></app-search-input-section>
 
-  <div
-    #target
-    class="container__content"
-    [ngClass]="{ 'container__content--hidden': !bikes.length }">
-    <span class="container__content-title gmat-title">{{ bikes.length }} bikes found</span>
+    <div
+      #target
+      class="container__content"
+      [ngClass]="{ 'container__content--hidden': !bikes.length }">
+      <span class="container__content-title gmat-title">{{ bikes.length }} bikes found</span>
 
-    <div class="container__content-body">
-      <app-bike-tile *ngFor="let bike of bikes" [bike]="bike"></app-bike-tile>
+      <div class="container__content-body">
+        <app-bike-tile *ngFor="let bike of bikes" [bike]="bike"></app-bike-tile>
+      </div>
+
+      <mat-paginator
+        [length]="bikesLength"
+        [pageSize]="loadBikesParams.itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChange($event)">
+      </mat-paginator>
     </div>
-
-    <mat-paginator
-      [length]="bikesLength"
-      [pageSize]="loadBikesParams.itemsPerPage"
-      [pageSizeOptions]="pageSizeOptions"
-      (page)="onPageChange($event)">
-    </mat-paginator>
   </div>
-</div>
+</app-spinner>

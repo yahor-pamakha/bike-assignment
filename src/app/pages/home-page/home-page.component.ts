@@ -3,7 +3,11 @@ import { PageEvent } from '@angular/material/paginator';
 import { Bike } from '@models/bike.model';
 import { Store } from '@ngrx/store';
 import { loadBikes } from '@store/actions/bike.actions';
-import { selectBikes, selectBikesIsLoaded } from '@store/selectors/bike.selectors';
+import {
+  selectBikes,
+  selectBikesIsLoaded,
+  selectBikesIsLoading,
+} from '@store/selectors/bike.selectors';
 import { combineLatest } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.state';
@@ -24,6 +28,7 @@ export class HomePageComponent extends GenericHooks implements OnInit {
   bikesLength = 1000;
   pageSizeOptions = [10, 20, 50];
   shouldScrollToBikes = false;
+  isLoading = false;
 
   constructor(private store: Store<AppState>) {
     super();
@@ -42,7 +47,10 @@ export class HomePageComponent extends GenericHooks implements OnInit {
             this.scrollToBikes();
             this.shouldScrollToBikes = false;
           }
-        })
+        }),
+      this.store.select(selectBikesIsLoading).subscribe(isLoading => {
+        this.isLoading = isLoading;
+      })
     );
   }
 

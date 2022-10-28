@@ -1,0 +1,21 @@
+.container {
+  &__spinner {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.8);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+
+    mat-spinner {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+
+      ::ng-deep circle {
+        stroke: #00A9E0;
+        stroke-width: 10% !important;
+      }
+    }
+  }
+}
