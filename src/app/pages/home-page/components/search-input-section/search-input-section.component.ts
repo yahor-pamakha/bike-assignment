@@ -9,9 +9,9 @@ import { GenericHooks } from 'src/app/util/generic-hooks';
   styleUrls: ['./search-input-section.component.scss'],
 })
 export class SearchInputSectionComponent extends GenericHooks implements OnInit {
-  @Output() clickSearchButtonEvent = new EventEmitter<void>();
+  @Output() clickSearchButtonEvent = new EventEmitter<string>();
 
-  myControl = new FormControl();
+  locationFormControl = new FormControl();
   options = [
     'Amsterdam',
     'Utrecht',
@@ -32,7 +32,7 @@ export class SearchInputSectionComponent extends GenericHooks implements OnInit 
   }
 
   ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredOptions = this.locationFormControl.valueChanges.pipe(
       startWith(''),
       map(name => (name ? this._filter(name) : this.options.slice()))
     );
@@ -47,7 +47,7 @@ export class SearchInputSectionComponent extends GenericHooks implements OnInit 
   }
 
   onSearchButtonClick() {
-    this.clickSearchButtonEvent.emit();
+    this.clickSearchButtonEvent.emit(this.locationFormControl.value);
   }
 
   private _filter(city: string) {

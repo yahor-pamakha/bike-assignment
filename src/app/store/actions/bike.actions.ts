@@ -4,8 +4,8 @@ import { createAction, props } from '@ngrx/store';
 export const loadBikes = createAction(
   '[Bike] Load Bikes',
   props<{
-    pageNumber?: number;
-    itemsPerPage?: number;
+    pageNumber: number;
+    itemsPerPage: number;
     location: string;
   }>()
 );
