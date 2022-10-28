@@ -5,15 +5,10 @@
   flex-direction: column;
   gap: toRem(10);
   align-items: center;
+  justify-content: center;
   height: 100vh;
+  overflow: hidden;
   background-color: #F2F3F6;
-  padding-top: 50px;
-
-  &__navigation {
-    &-item {
-      color: #00A9E0;
-    }
-  }
 
   &__body {
     display: flex;

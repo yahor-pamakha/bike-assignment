@@ -7,6 +7,7 @@ $custom-typography-config: mat.define-typography-config(
   $title: mat.define-typography-level(28px, 110%, 400, $global-font-family),
   $subheading-1: mat.define-typography-level(16px, 110%, 700, $global-font-family),
   $body-1: mat.define-typography-level(16px, 24px, 400, $global-font-family),
+  $caption: mat.define-typography-level(12px, 110%, 400, $global-font-family),
 );
 
 .gmat-headline {

@@ -39,5 +39,15 @@ input.mat-input-element {
 }
 
 .mat-paginator {
-  // background-color: colors.$global-background-color;
+  @include mat.typography-level(typography.$custom-typography-config, caption);
+  color: #111F32;
+  margin-right: auto;
+  margin-left: -10px;
+
+  & .mat-paginator-page-size {
+    & .mat-select-trigger {
+      @include mat.typography-level(typography.$custom-typography-config, caption);
+      color: #111F32
+    }
+  }
 }
