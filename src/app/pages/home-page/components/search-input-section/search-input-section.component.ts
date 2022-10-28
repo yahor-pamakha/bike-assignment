@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, of, startWith } from 'rxjs';
 import { GenericHooks } from 'src/app/util/generic-hooks';
@@ -9,6 +9,8 @@ import { GenericHooks } from 'src/app/util/generic-hooks';
   styleUrls: ['./search-input-section.component.scss'],
 })
 export class SearchInputSectionComponent extends GenericHooks implements OnInit {
+  @Output() clickSearchButtonEvent = new EventEmitter<void>();
+
   myControl = new FormControl();
   options = [
     'Amsterdam',
@@ -42,6 +44,10 @@ export class SearchInputSectionComponent extends GenericHooks implements OnInit 
 
   returnFn(city: any) {
     return city;
+  }
+
+  onSearchButtonClick() {
+    this.clickSearchButtonEvent.emit();
   }
 
   private _filter(city: string) {

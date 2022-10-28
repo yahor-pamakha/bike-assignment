@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: toRem(10);
   align-items: center;
+  height: 100vh;
   background-color: #F2F3F6;
   padding-top: 50px;
 
@@ -19,10 +20,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-
-    &-image {
-
-    }
 
     &-content {
       display: flex;
@@ -61,6 +58,7 @@
           border-radius: 12px;
           border: none;
           color: white;
+          cursor: pointer;
           padding: 21px 55px;
           margin-bottom: 23px;
         }

@@ -6,7 +6,7 @@ export const bikeFeatureKey = 'bike';
 
 export interface BikeState {
   bikes: Bike[];
-  detailedBike: Bike;
+  detailedBike: any;
   isLoading: boolean;
   isLoaded: boolean;
 }

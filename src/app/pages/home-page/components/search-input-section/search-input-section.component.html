@@ -4,7 +4,7 @@
   </div>
 
   <div class="container__body">
-    <img class="container__body-image" src="assets/images/forever-bike.jpg" alt="" />
+    <img src="assets/images/forever-bike.jpg" alt="" />
 
     <div class="container__body-content">
       <span class="container__body-content-title gmat-headline">
@@ -32,10 +32,14 @@
           </mat-form-field>
         </form>
 
-        <button class="container__body-content-search-button gmat-subheading-1">View bikes</button>
+        <button
+          class="container__body-content-search-button gmat-subheading-1"
+          (click)="onSearchButtonClick()">
+          View bikes
+        </button>
       </div>
     </div>
 
-    <img class="container__body-image" src="assets/images/forward-bike.jpg" alt="" />
+    <img src="assets/images/forward-bike.jpg" alt="" />
   </div>
 </div>

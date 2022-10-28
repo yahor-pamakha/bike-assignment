@@ -1,0 +1,12 @@
+<div class="container">
+  <app-search-input-section
+    (clickSearchButtonEvent)="onSearchButtonClick(target)"></app-search-input-section>
+
+  <div #target class="container__content">
+    <span class="container__content-title gmat-title">{{ bikes.length }} bikes found</span>
+
+    <div class="container__content-body">
+      <app-bike-tile *ngFor="let bike of bikes" [bike]="bike"></app-bike-tile>
+    </div>
+  </div>
+</div>

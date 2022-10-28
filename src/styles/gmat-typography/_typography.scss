@@ -4,8 +4,7 @@ $global-font-family: '"Sora"';
 
 $custom-typography-config: mat.define-typography-config(
   $headline: mat.define-typography-level(28px, 110%, 700, $global-font-family),
-  $display-2: mat.define-typography-level(36px, 32px, 500, $global-font-family),
-  $title: mat.define-typography-level(22px, 24px, 700, $global-font-family),
+  $title: mat.define-typography-level(28px, 110%, 400, $global-font-family),
   $subheading-1: mat.define-typography-level(16px, 110%, 700, $global-font-family),
   $body-1: mat.define-typography-level(16px, 24px, 400, $global-font-family),
 );
@@ -32,4 +31,8 @@ $custom-typography-config: mat.define-typography-config(
 
 .gmat-body-1 {
   @include mat.typography-level($custom-typography-config, body-1);
+}
+
+.bold {
+  font-weight: 700;
 }

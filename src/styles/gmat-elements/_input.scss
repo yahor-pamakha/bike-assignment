@@ -29,9 +29,11 @@
   }
 }
 
-.mat-input-element {
+input.mat-input-element {
+  @include mat.typography-level(typography.$custom-typography-config, body-1);
+  color: #111F32;
+
   &::placeholder {
-    @include mat.typography-level(typography.$custom-typography-config, body-1);
     color: #B3B3B3;
   }
 }
