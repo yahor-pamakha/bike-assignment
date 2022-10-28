@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="container__navigation">
+    <span class="container__navigation-item gmat-headline">Bikes</span>
+  </div>
+
+  <div class="container__body">
+    <img class="container__body-image" src="assets/images/forever-bike.jpg" alt="" />
+
+    <div class="container__body-content">
+      <span class="container__body-content-title gmat-headline">
+        See which bikes are available in your city
+      </span>
+
+      <div class="container__body-content-search">
+        <form class="container__body-content-search-form">
+          <mat-form-field class="container__body-content-search-form-field" appearance="outline">
+            <input
+              type="text"
+              placeholder="Choose city"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto" />
+            <img
+              class="container__body-content-search-form-field-icon"
+              src="assets/icons/search.svg"
+              alt="" />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+
+        <button class="container__body-content-search-button gmat-subheading-1">View bikes</button>
+      </div>
+    </div>
+
+    <img class="container__body-image" src="assets/images/forward-bike.jpg" alt="" />
+  </div>
+</div>

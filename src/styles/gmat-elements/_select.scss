@@ -1,0 +1,14 @@
+@use "@angular/material" as mat;
+@use "../gmat-typography/typography" as typography;
+
+.mat-option {
+  @include mat.typography-level(typography.$custom-typography-config, body-1);
+  color: #111F32;
+}
+
+.mat-autocomplete-panel {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  color: #111F32;
+  margin-top: -5px;
+}

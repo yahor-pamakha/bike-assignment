@@ -1,0 +1,70 @@
+@import 'src/styles/functions/converters';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(10);
+  align-items: center;
+  background-color: #F2F3F6;
+  padding-top: 50px;
+
+  &__navigation {
+    &-item {
+      color: #00A9E0;
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &-image {
+
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: toRem(32);
+
+      &-title {
+        display: block;
+        max-width: toRem(450);
+        color: #111F32;
+      }
+      
+      &-search {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        &-form {
+          width: 380px;
+
+          &-field {
+            width: inherit;
+
+            &-icon {
+              position: absolute;
+              margin-left: -30px;
+              margin-top: -4px;
+            }
+          }
+        }
+
+        &-button {
+          background: #00A9E0;
+          border-radius: 12px;
+          border: none;
+          color: white;
+          padding: 21px 55px;
+          margin-bottom: 23px;
+        }
+      }
+    }
+  }
+}
