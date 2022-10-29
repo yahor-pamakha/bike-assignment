@@ -1,7 +1,15 @@
 <a class="router-link" [routerLink]="[bike?.id]">
   <div class="container">
     <div class="container__thumbnail">
-      <img class="container__thumbnail-image" src="{{ bike?.thumb }}" alt="" />
+      <div class="container__thumbnail-label">
+        <span class="container__thumbnail-label-text gmat-body-1">
+          {{ bike?.manufacturer_name }}
+        </span>
+      </div>
+
+      <div class="container__thumbnail-wrapper">
+        <img class="container__thumbnail-wrapper-image" src="{{ bike?.thumb }}" alt="" />
+      </div>
     </div>
 
     <span class="container__title gmat-headline">{{ bike?.frame_model }}</span>
