@@ -15,7 +15,7 @@ export class BikeService {
     params = params.append('page', String(pageNumber));
     params = params.append('per_page', String(itemsPerPage));
     params = params.append('location', location);
-    params = params.append('stolenness', 'non');
+    params = params.append('stolenness', 'proximity');
     return this.http.get<any>(`${environment.apiVersion}/search`, {
       params,
     });

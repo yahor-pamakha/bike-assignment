@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { HandlebarPipe } from './handlebar-pipe';
+import { BikeFieldPipe } from './bike-field-pipe';
 
 @NgModule({
-  declarations: [HandlebarPipe],
-  exports: [HandlebarPipe],
+  declarations: [BikeFieldPipe],
+  exports: [BikeFieldPipe],
 })
 export class CustomPipesModule {}

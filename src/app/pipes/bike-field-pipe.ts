@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { capitalize } from 'lodash';
 
 @Pipe({
-  name: 'handlebar',
+  name: 'bikeField',
 })
-export class HandlebarPipe implements PipeTransform {
+export class BikeFieldPipe implements PipeTransform {
   handlebarTypes = [
     {
       slug: 'drop_bar',

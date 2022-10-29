@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { map, Observable, of, startWith } from 'rxjs';
 import { GenericHooks } from 'src/app/util/generic-hooks';
 
@@ -10,6 +11,9 @@ import { GenericHooks } from 'src/app/util/generic-hooks';
 })
 export class SearchInputSectionComponent extends GenericHooks implements OnInit {
   @Output() clickSearchButtonEvent = new EventEmitter<string>();
+
+  @ViewChild(MatAutocompleteTrigger)
+  autocomplete!: MatAutocompleteTrigger;
 
   locationFormControl = new FormControl();
   options = [
@@ -46,7 +50,9 @@ export class SearchInputSectionComponent extends GenericHooks implements OnInit 
     return city;
   }
 
-  onSearchButtonClick() {
+  onSearchButtonClick(event?: any) {
+    event?.preventDefault();
+    this.autocomplete.closePanel();
     this.clickSearchButtonEvent.emit(this.locationFormControl.value);
   }
 

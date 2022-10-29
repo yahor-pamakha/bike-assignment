@@ -10,9 +10,14 @@
   &__thumbnail {
     max-width: 420px;
     max-height: 420px;
+    border: 1px solid rgba(179, 179, 179, .5);
     border-radius: 24px;
     overflow: hidden;
     margin-bottom: 32px;
+
+    &--no-border {
+      border: none;
+    }
 
     &-label {
       position: absolute;

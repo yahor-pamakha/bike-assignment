@@ -14,6 +14,7 @@
               type="text"
               placeholder="Choose city"
               matInput
+              (keydown.enter)="onSearchButtonClick($event)"
               [formControl]="locationFormControl"
               [matAutocomplete]="auto" />
             <img
@@ -21,7 +22,10 @@
               src="assets/icons/search.svg"
               alt="" />
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+                (click)="onSearchButtonClick()">
                 {{ option }}
               </mat-option>
             </mat-autocomplete>
