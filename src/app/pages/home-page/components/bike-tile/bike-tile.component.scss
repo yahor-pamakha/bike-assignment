@@ -1,7 +1,11 @@
+.router-link {
+  text-decoration: none;
+  color: #111F32;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 
   &__thumbnail {
     display: flex;

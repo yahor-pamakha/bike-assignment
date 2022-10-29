@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { NavigationEnd, Router } from '@angular/router';
 import { Bike } from '@models/bike.model';
 import { Store } from '@ngrx/store';
 import { loadBikes } from '@store/actions/bike.actions';
@@ -28,13 +29,24 @@ export class HomePageComponent extends GenericHooks implements OnInit {
   bikesLength = 1000;
   pageSizeOptions = [10, 20, 50];
   shouldScrollToBikes = false;
+  targetBikeIndex = 0;
   isLoading = false;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
     super();
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd && event.url.includes('bikes')) {
+        this.targetBikeIndex = this.bikes.findIndex(
+          bike => bike.id === Number(event.url.replace('/bikes/', ''))
+        );
+      } else if (event instanceof NavigationEnd) {
+        this.scrollToBikes('auto', this.targetBikeIndex, true);
+      }
+    });
+
     this.subscriptions.push(
       combineLatest([this.store.select(selectBikes), this.store.select(selectBikesIsLoaded)])
         .pipe(
@@ -44,7 +56,7 @@ export class HomePageComponent extends GenericHooks implements OnInit {
         .subscribe(bikes => {
           this.bikes = bikes;
           if (this.shouldScrollToBikes) {
-            this.scrollToBikes();
+            this.scrollToBikes('smooth', 0, false);
             this.shouldScrollToBikes = false;
           }
         }),
@@ -80,11 +92,17 @@ export class HomePageComponent extends GenericHooks implements OnInit {
     this.store.dispatch(loadBikes({ pageNumber, itemsPerPage, location }));
   }
 
-  private scrollToBikes(): void {
-    const scrollTarget = document.getElementsByClassName('container__content')[0];
+  private scrollToBikes(
+    behavior: ScrollBehavior,
+    targetBikeIndex: number,
+    scrollToBike: boolean
+  ): void {
     setTimeout(() => {
+      const scrollTarget = scrollToBike
+        ? document.getElementsByTagName('app-bike-tile')[targetBikeIndex]
+        : document.getElementsByClassName('container__content')[targetBikeIndex];
       scrollTarget.scrollIntoView({
-        behavior: 'smooth',
+        behavior,
         block: 'start',
         inline: 'nearest',
       });

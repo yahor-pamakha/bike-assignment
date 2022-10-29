@@ -4,13 +4,14 @@
   gap: 25px;
   padding: 47px 100px 98px 70px;
 
+  .router-link {
+    color: #00A9E0;
+    text-decoration: none;
+  }
+
   &__navigation {
     display: flex;
     gap: 10px;
-
-    &-text {
-      color: #00A9E0;
-    }
   }
 
   &__body {

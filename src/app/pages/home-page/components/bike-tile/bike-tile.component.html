@@ -1,21 +1,23 @@
-<div class="container">
-  <div class="container__thumbnail">
-    <img class="container__thumbnail-image" src="{{ bike?.thumb }}" alt="" />
+<a class="router-link" [routerLink]="[bike?.id]">
+  <div class="container">
+    <div class="container__thumbnail">
+      <img class="container__thumbnail-image" src="{{ bike?.thumb }}" alt="" />
+    </div>
+
+    <span class="container__title gmat-headline">{{ bike?.frame_model }}</span>
+
+    <div class="container__info">
+      <span class="gmat-body-1 bold"
+        >Year: <span class="gmat-body-1">{{ bike?.year }}</span>
+      </span>
+
+      <span class="gmat-body-1 bold"
+        >Status: <span class="gmat-body-1">{{ bike?.status }}</span>
+      </span>
+
+      <span class="gmat-body-1 bold"
+        >Colors: <span class="gmat-body-1">{{ bike?.frame_colors }}</span>
+      </span>
+    </div>
   </div>
-
-  <span class="container__title gmat-headline">{{ bike?.frame_model }}</span>
-
-  <div class="container__info">
-    <span class="gmat-body-1 bold"
-      >Year: <span class="gmat-body-1">{{ bike?.year }}</span>
-    </span>
-
-    <span class="gmat-body-1 bold"
-      >Status: <span class="gmat-body-1">{{ bike?.status }}</span>
-    </span>
-
-    <span class="gmat-body-1 bold"
-      >Colors: <span class="gmat-body-1">{{ bike?.frame_colors }}</span>
-    </span>
-  </div>
-</div>
+</a>

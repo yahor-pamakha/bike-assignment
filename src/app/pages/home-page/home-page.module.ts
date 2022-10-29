@@ -4,6 +4,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module';
 import { BikeTileModule } from './components/bike-tile/search-input-section.module';
 import { SearchInputSectionModule } from './components/search-input-section/search-input-section.module';
+import { HomePageRoutingModule } from './home-page.routing.module';
 import { HomePageComponent } from './home-page.component';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HomePageComponent } from './home-page.component';
     MatPaginatorModule,
     SpinnerModule,
     SearchInputSectionModule,
+    HomePageRoutingModule,
     BikeTileModule,
   ],
   exports: [HomePageComponent],

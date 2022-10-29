@@ -1,5 +1,5 @@
 export interface Bike {
-  id: string;
+  id: number;
   frame_model: string;
   year: number;
   manufacturer_name: string;
