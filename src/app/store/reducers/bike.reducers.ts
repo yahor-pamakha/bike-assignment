@@ -1,4 +1,4 @@
-import { Bike } from '@models/bike.model';
+import { Bike, DetailedBike } from '@models/bike.model';
 import { createReducer, on } from '@ngrx/store';
 import * as BikeActions from '@store/actions/bike.actions';
 
@@ -6,26 +6,14 @@ export const bikeFeatureKey = 'bike';
 
 export interface BikeState {
   bikes: Bike[];
-  detailedBike: any;
+  detailedBike: DetailedBike;
   isLoading: boolean;
   isLoaded: boolean;
 }
 
 const initialState: BikeState = {
   bikes: [],
-  detailedBike: {
-    id: '',
-    title: '',
-    year: 0,
-    type_of_cycle: '',
-    frame_model: '',
-    frame_material_slug: '',
-    frame_colors: [],
-    description: '',
-    manufacturer_name: '',
-    large_img: '',
-    thumbnail: '',
-  },
+  detailedBike: {} as DetailedBike,
   isLoading: false,
   isLoaded: false,
 };

@@ -26,7 +26,7 @@ export class BikeEffects {
       ofType(BikeActions.loadDetailedBike),
       concatMap(payload =>
         this.bikeService.getBike(payload.bikeId).pipe(
-          map(bike => BikeActions.loadDetailedBikeSuccess({ bike })),
+          map(bike => BikeActions.loadDetailedBikeSuccess({ bike: bike.bike })),
           catchError(error => of(BikeActions.loadBikesFailure({ error })))
         )
       )

@@ -21,7 +21,7 @@ export class BikeService {
     });
   }
 
-  getBike(bikeId: string): Observable<Bike> {
-    return this.http.get<Bike>(`${environment.apiVersion}/bikes/${bikeId}`);
+  getBike(bikeId: string): Observable<any> {
+    return this.http.get<any>(`${environment.apiVersion}/bikes/${bikeId}`);
   }
 }

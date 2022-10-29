@@ -1,4 +1,4 @@
-import { Bike } from '@models/bike.model';
+import { Bike, DetailedBike } from '@models/bike.model';
 import { createAction, props } from '@ngrx/store';
 
 export const loadBikes = createAction(
@@ -24,7 +24,7 @@ export const loadDetailedBike = createAction(
 
 export const loadDetailedBikeSuccess = createAction(
   '[Bike] Load Detailed Bike Success',
-  props<{ bike: Bike }>()
+  props<{ bike: DetailedBike }>()
 );
 
 export const loadDetailedBikeFailure = createAction(
