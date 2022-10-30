@@ -1,7 +1,9 @@
 @use '@angular/material' as mat;
 @use 'styles/gmat-typography/typography' as typography;
 @use 'styles/gmat-elements/input';
+@use 'styles/gmat-elements/pagination';
 @use 'styles/gmat-elements/select';
+@use 'styles/common';
 @use 'styles/colors/colors' as colors;
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap');
@@ -10,4 +12,10 @@
 body {
   margin: 0;
   padding: 0;
+  color: colors.$default-text-color;
+}
+
+a {
+  text-decoration: none;
+  color: colors.$default-text-color;
 }

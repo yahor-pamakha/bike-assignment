@@ -1,13 +1,13 @@
 <app-spinner [spin]="isLoading">
-  <div class="container">
+  <div class="container flex-column">
     <a class="router-link" routerLink="/">
-      <div class="container__navigation">
+      <div class="container__navigation flex">
         <img src="assets/icons/arrow.svg" alt="" />
         <span class="gmat-subheading-1">Back to bikes</span>
       </div>
     </a>
 
-    <div class="container__body">
+    <div class="container__body flex">
       <img
         class="container__body-image"
         src="{{
@@ -16,8 +16,8 @@
         alt=""
         [ngClass]="{ 'container__body-image--no-border': detailedBike?.large_img }" />
 
-      <div class="container__body-content">
-        <div class="container__body-content-header">
+      <div class="container__body-content flex-column">
+        <div class="container__body-content-header flex-column">
           <span class="container__body-content-header-title gmat-display-1">
             {{ detailedBike?.frame_model }}
           </span>
@@ -26,8 +26,10 @@
           </span>
         </div>
 
-        <div class="container__body-content-info">
-          <div class="container__body-content-info-item" *ngFor="let item of infoItems">
+        <div class="container__body-content-info justify-between wrap">
+          <div
+            class="container__body-content-info-item flex-column"
+            *ngFor="let item of bikeInfoItems">
             <span class="gmat-subheading-1">{{ item.title }}</span>
             <span class="gmat-body-1">
               {{ !detailedBike ? '' : (detailedBike[item.field] | bikeField) }}

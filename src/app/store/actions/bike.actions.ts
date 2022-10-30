@@ -1,4 +1,4 @@
-import { Bike, DetailedBike } from '@models/bike.model';
+import { Bike, DetailedBike, SearchCount } from '@models/bike.model';
 import { createAction, props } from '@ngrx/store';
 
 export const loadBikes = createAction(
@@ -29,5 +29,20 @@ export const loadDetailedBikeSuccess = createAction(
 
 export const loadDetailedBikeFailure = createAction(
   '[Bike] Load Detailed Bike Failure',
+  props<{ error: any }>()
+);
+
+export const loadSearchCount = createAction(
+  '[Bike] Load Search Count',
+  props<{ location: string }>()
+);
+
+export const loadSearchCountSuccess = createAction(
+  '[Bike] Load Search Count Success',
+  props<{ searchCount: SearchCount }>()
+);
+
+export const loadSearchCountFailure = createAction(
+  '[Bike] Load Search Count Failure',
   props<{ error: any }>()
 );

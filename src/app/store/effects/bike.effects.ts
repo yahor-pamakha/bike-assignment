@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap } from 'rxjs/operators';
+import { catchError, map, concatMap, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as BikeActions from '@store/actions/bike.actions';
 import { BikeService } from '@services/bike.service';
@@ -14,7 +14,10 @@ export class BikeEffects {
       ofType(BikeActions.loadBikes),
       concatMap(payload =>
         this.bikeService.searchBikes(payload).pipe(
-          map(bikes => BikeActions.loadBikesSuccess({ bikes: bikes.bikes })),
+          mergeMap(bikes => [
+            BikeActions.loadBikesSuccess({ bikes: bikes.bikes }),
+            BikeActions.loadSearchCount({ location: payload.location }),
+          ]),
           catchError(error => of(BikeActions.loadBikesFailure({ error })))
         )
       )
@@ -27,7 +30,19 @@ export class BikeEffects {
       concatMap(payload =>
         this.bikeService.getBike(payload.bikeId).pipe(
           map(bike => BikeActions.loadDetailedBikeSuccess({ bike: bike.bike })),
-          catchError(error => of(BikeActions.loadBikesFailure({ error })))
+          catchError(error => of(BikeActions.loadDetailedBikeFailure({ error })))
+        )
+      )
+    );
+  });
+
+  loadSearchCount$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(BikeActions.loadSearchCount),
+      concatMap(payload =>
+        this.bikeService.getSearchBikeCount(payload.location).pipe(
+          map(searchCount => BikeActions.loadSearchCountSuccess({ searchCount })),
+          catchError(error => of(BikeActions.loadSearchCountFailure({ error })))
         )
       )
     );

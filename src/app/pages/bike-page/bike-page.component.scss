@@ -1,27 +1,37 @@
+@import 'src/styles/colors/colors';
+@import 'src/styles/common';
+
+$container-gap: 25px;
+$container-padding: 47px 100px 98px 70px;
+
+$container-navigation-gap: 10px;
+$container-navigation-body-gap: 100px;
+$container-navigation-body-content-gap: 40px;
+$container-navigation-body-content-header-gap: 16px;
+$container-navigation-body-content-header-padding: 35px;
+$container-navigation-body-content-info-gap: 24px;
+$container-navigation-body-content-info-padding: 40px;
+$container-navigation-body-content-info-item-gap: 8px;
+
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  padding: 47px 100px 98px 70px;
+  gap: $container-gap;
+  padding: $container-padding;
 
   .router-link {
-    color: #00A9E0;
-    text-decoration: none;
+    color: $blue-700;
   }
 
   &__navigation {
-    display: flex;
-    gap: 10px;
+    gap: $container-navigation-gap;
   }
 
   &__body {
-    display: flex;
-    gap: 100px;
+    gap: $container-navigation-body-gap;
 
     &-image {
-      border-radius: 24px;
-      border: 1px solid rgba(179, 179, 179, .5);
-      width: 640px;
+      border-radius: $default-border-radius * 3;
+      border: 1px solid $gray-600;
+      width: $default-image-size;
 
       &--no-border {
         border: none;
@@ -29,15 +39,11 @@
     }
 
     &-content {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
+      gap: $container-navigation-body-content-gap;
 
       &-header {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        padding-right: 35px;
+        gap: $container-navigation-body-content-header-gap;
+        padding-right: $container-navigation-body-content-header-padding;
 
         &-title,
         &-manufacturer {
@@ -46,19 +52,14 @@
       }
 
       &-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        background: #F2F3F6;
-        border-radius: 24px;
-        row-gap: 24px;
-        padding: 40px;
+        background: $gray-200;
+        border-radius: $default-border-radius * 3;
+        row-gap: $container-navigation-body-content-info-gap;
+        padding: $container-navigation-body-content-info-padding;
 
         &-item {
-          display: flex;
           flex: 50%;
-          flex-direction: column;
-          gap: 8px;
+          gap: $container-navigation-body-content-info-item-gap;
         }
       }
     }

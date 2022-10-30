@@ -1,71 +1,66 @@
-.router-link {
-  text-decoration: none;
-  color: #111F32;
-}
+@import 'src/styles/colors/colors';
+@import 'src/styles/common';
+
+$container-thumbnail-margin-bottom: 32px;
+
+$container-thumbnail-label-margin: 16px;
+$container-thumbnail-label-padding: 6px;
+
+$container-title-margin-bottom: 20px;
+
+$container-info-gap: 12px;
 
 .container {
-  display: flex;
-  flex-direction: column;
-
   &__thumbnail {
-    max-width: 420px;
-    max-height: 420px;
-    border: 1px solid rgba(179, 179, 179, .5);
-    border-radius: 24px;
+    max-width: $default-thumb-size;
+    max-height: $default-thumb-size;
+    border: 1px solid $gray-600;
+    border-radius: $default-border-radius * 3;
     overflow: hidden;
-    margin-bottom: 32px;
+    margin-bottom: $container-thumbnail-margin-bottom;
 
     &--no-border {
       border: none;
     }
 
     &-label {
-      position: absolute;
-      background: #DEF4FC;
-      border-radius: 8px;
-      margin: 16px;
-      padding: 6px 12px;
+      background: $blue-100;
+      border-radius: $default-border-radius;
+      margin: $container-thumbnail-label-margin;
+      padding: $container-thumbnail-label-padding $container-thumbnail-label-padding * 2;
 
       &-text {
-        color: #00A9E0;
+        color: $blue-700;
       }
     }
 
     &-wrapper {
-      display: flex;
-      justify-content: center;
-
       &-image {
-        width: 420px;
-        height: 420px;
-        border-radius: 24px;
-        transition: 0.2s ease-in;
+        width: $default-thumb-size;
+        height: $default-thumb-size;
+        border-radius: $default-border-radius * 3;
       }
     }
   }
 
   &__title {
-    max-width: fit-content;
-    transition: 0.2s ease-in;
-    margin-bottom: 20px;
+    margin-bottom: $container-title-margin-bottom;
   }
 
   &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: $container-info-gap;
   }
 
   &:hover {
     .container__thumbnail-wrapper-image {
-      height: 450px;
-      width: 450px;
+      height: $default-thumb-size + 30px;
+      width: $default-thumb-size + 30px;
       transition: 0.4s ease-out;
     }
 
     .container__title {
       transition: 0.4s ease-out;
-      color: #00A9E0;
+      color: $blue-700;
     }
   }
 }

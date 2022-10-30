@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { map, Observable, of, startWith } from 'rxjs';
+import { AVAILABLE_LOCATIONS } from 'src/app/constants/home-page.const';
 import { GenericHooks } from 'src/app/util/generic-hooks';
 
 @Component({
@@ -16,19 +17,8 @@ export class SearchInputSectionComponent extends GenericHooks implements OnInit 
   autocomplete!: MatAutocompleteTrigger;
 
   locationFormControl = new FormControl();
-  options = [
-    'Amsterdam',
-    'Utrecht',
-    'Rotterdam',
-    'Amersfoort',
-    'Arnhem',
-    'Nijmegen',
-    'Eindhoven',
-    'Enschede',
-    'Zwolle',
-    'Groningen',
-    'Hengelo',
-  ];
+  /* It would be better to get available locations from API. But there is no suitable endpoint. */
+  options = AVAILABLE_LOCATIONS;
   filteredOptions: Observable<any> = of([]);
 
   constructor() {

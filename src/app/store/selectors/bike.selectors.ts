@@ -8,6 +8,10 @@ export const selectDetailedBike = createSelector(
   selectBikeState,
   (state: BikeState) => state.detailedBike
 );
+export const selectSearchCount = createSelector(
+  selectBikeState,
+  (state: BikeState) => state.searchCount
+);
 
 export const selectBikesIsLoaded = createSelector(
   selectBikeState,

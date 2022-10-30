@@ -17,3 +17,9 @@ export interface DetailedBike extends Bike {
   rear_wheel_size_iso_bsd: number;
   large_img: string;
 }
+
+export interface SearchCount {
+  proximity: number;
+  stolen: number;
+  non: number;
+}

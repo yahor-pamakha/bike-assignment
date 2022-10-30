@@ -1,61 +1,56 @@
 @import 'src/styles/functions/converters';
+@import 'src/styles/colors/colors';
+@import 'src/styles/common';
+
+$container-gap: toRem(10);
+$container-body-content-gap: toRem(32);
+$container-body-content-title-width: toRem(450);
+$container-body-content-search-gap: 8px;
+$container-body-content-search-form-width: 380px;
+$container-body-content-search-form-field-icon-margin-left: -30px;
+$container-body-content-search-form-field-icon-margin-top: -4px;
+$container-body-content-search-button-radius: 12px;
+$container-body-content-search-button-padding: 21px 55px;
+$container-body-content-search-button-margin-bottom: 23px;
 
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: toRem(10);
-  align-items: center;
-  justify-content: center;
+  gap: $container-gap;
   height: 100vh;
   overflow: hidden;
-  background-color: #F2F3F6;
+  background-color: $gray-200;
 
   &__body {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-
     &-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: toRem(32);
+      gap: $container-body-content-gap;
 
       &-title {
-        display: block;
-        max-width: toRem(450);
-        color: #111F32;
+        max-width: $container-body-content-title-width;
       }
       
       &-search {
-        display: flex;
-        gap: 8px;
-        align-items: center;
+        gap: $container-body-content-search-gap;
 
         &-form {
-          width: 380px;
+          width: $container-body-content-search-form-width;
 
           &-field {
             width: inherit;
 
             &-icon {
-              position: absolute;
-              margin-left: -30px;
-              margin-top: -4px;
+              margin-left: $container-body-content-search-form-field-icon-margin-left;
+              margin-top: $container-body-content-search-form-field-icon-margin-top;
             }
           }
         }
 
         &-button {
-          background: #00A9E0;
-          border-radius: 12px;
+          background: $blue-700;
+          border-radius: $container-body-content-search-button-radius;
           border: none;
           color: white;
           cursor: pointer;
-          padding: 21px 55px;
-          margin-bottom: 23px;
+          padding: $container-body-content-search-button-padding;
+          margin-bottom: $container-body-content-search-button-margin-bottom;
         }
       }
     }

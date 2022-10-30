@@ -1,13 +1,13 @@
-<div class="container">
-  <div class="container__body">
+<div class="container flex-column justify-center align-center">
+  <div class="container__body justify-between align-center w-100">
     <img src="assets/images/forever-bike.jpg" alt="" />
 
-    <div class="container__body-content">
-      <span class="container__body-content-title gmat-headline">
+    <div class="container__body-content flex-column align-center text-center">
+      <span class="container__body-content-title gmat-headline block">
         See which bikes are available in your city
       </span>
 
-      <div class="container__body-content-search">
+      <div class="container__body-content-search flex align-center">
         <form class="container__body-content-search-form">
           <mat-form-field class="container__body-content-search-form-field" appearance="outline">
             <input
@@ -18,7 +18,7 @@
               [formControl]="locationFormControl"
               [matAutocomplete]="auto" />
             <img
-              class="container__body-content-search-form-field-icon"
+              class="container__body-content-search-form-field-icon absolute"
               src="assets/icons/search.svg"
               alt="" />
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">

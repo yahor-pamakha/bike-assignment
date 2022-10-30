@@ -1,3 +1,5 @@
+@import 'src/styles/colors/colors';
+
 .container {
   &__spinner {
     position: fixed;
@@ -13,7 +15,7 @@
       margin: auto;
 
       ::ng-deep circle {
-        stroke: #00A9E0;
+        stroke: $blue-700;
         stroke-width: 10% !important;
       }
     }

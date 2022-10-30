@@ -8,10 +8,12 @@ import {
   selectBikes,
   selectBikesIsLoaded,
   selectBikesIsLoading,
+  selectSearchCount,
 } from '@store/selectors/bike.selectors';
 import { combineLatest } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { AppState } from 'src/app/app.state';
+import { DEFAULT_SEARCH_API_PARAMS, PAGE_SIZE_OPTIONS } from 'src/app/constants/home-page.const';
 import { GenericHooks } from 'src/app/util/generic-hooks';
 
 @Component({
@@ -21,16 +23,12 @@ import { GenericHooks } from 'src/app/util/generic-hooks';
 })
 export class HomePageComponent extends GenericHooks implements OnInit {
   bikes: Bike[] = [];
-  loadBikesParams = {
-    pageNumber: 1,
-    itemsPerPage: 10,
-    location: '',
-  };
-  bikesLength = 1000;
-  pageSizeOptions = [10, 20, 50];
+  loadBikesParams = DEFAULT_SEARCH_API_PARAMS;
+  pageSizeOptions = PAGE_SIZE_OPTIONS;
   shouldScrollToBikes = false;
   targetBikeIndex = 0;
   isLoading = false;
+  searchCount = 0;
 
   constructor(private store: Store<AppState>, private router: Router) {
     super();
@@ -62,6 +60,9 @@ export class HomePageComponent extends GenericHooks implements OnInit {
         }),
       this.store.select(selectBikesIsLoading).subscribe(isLoading => {
         this.isLoading = isLoading;
+      }),
+      this.store.select(selectSearchCount).subscribe(searchCount => {
+        this.searchCount = searchCount.proximity;
       })
     );
   }

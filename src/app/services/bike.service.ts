@@ -24,4 +24,12 @@ export class BikeService {
   getBike(bikeId: string): Observable<any> {
     return this.http.get<any>(`${environment.apiVersion}/bikes/${bikeId}`);
   }
+
+  getSearchBikeCount(location: string) {
+    let params = new HttpParams();
+    params = params.append('location', location);
+    return this.http.get<any>(`${environment.apiVersion}/search/count`, {
+      params,
+    });
+  }
 }
