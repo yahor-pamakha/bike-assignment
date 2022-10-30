@@ -12,7 +12,7 @@ export interface BikeState {
   isLoaded: boolean;
 }
 
-const initialState: BikeState = {
+export const initialState: BikeState = {
   bikes: [],
   detailedBike: {} as DetailedBike,
   searchCount: {} as SearchCount,
