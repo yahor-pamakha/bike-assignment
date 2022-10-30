@@ -1,6 +1,7 @@
-# BikeAssignment
+# Bike Assignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
+This application is deployed on Firebase hosting.
+Link - `https://bike-assignment-a65a4.web.app`
 
 ## Development server
 
