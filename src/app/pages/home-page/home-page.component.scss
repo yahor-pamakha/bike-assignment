@@ -1,0 +1,33 @@
+@import 'src/styles/colors/colors';
+
+$container-content-top-padding: 80px;
+$container-content-side-padding: 100px;
+
+$container-content-body-row-gap: 65px;
+$container-content-body-column-gap: 20px;
+$container-content-body-margin-top: 45px;
+$container-content-body-margin-bottom: 30px;
+
+.container {
+  &__content {
+    padding-top: $container-content-top-padding;
+    padding-right: $container-content-side-padding;
+    padding-bottom: 0;
+    padding-left: $container-content-side-padding;
+
+    &--hidden {
+      display: none;
+    }
+
+    &-title {
+      color: $gray-500;
+    }
+
+    &-body {
+      row-gap: $container-content-body-row-gap;
+      column-gap: $container-content-body-column-gap;
+      margin-top: $container-content-body-margin-top;
+      margin-bottom: $container-content-body-margin-bottom;
+    }
+  }
+}

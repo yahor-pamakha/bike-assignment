@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/bike-assignment",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

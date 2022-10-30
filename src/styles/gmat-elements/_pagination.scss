@@ -1,0 +1,17 @@
+@use "@angular/material" as mat;
+@use "../gmat-typography/typography" as typography;
+@import 'src/styles/colors/colors';
+
+.mat-paginator {
+  @include mat.typography-level(typography.$custom-typography-config, caption);
+  color: $default-text-color;
+  margin-right: auto;
+  margin-left: -10px;
+  
+  & .mat-paginator-page-size {
+    & .mat-select-trigger {
+      @include mat.typography-level(typography.$custom-typography-config, caption);
+      color: $default-text-color;
+    }
+  }
+}

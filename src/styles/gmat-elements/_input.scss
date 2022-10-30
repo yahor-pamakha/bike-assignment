@@ -1,0 +1,39 @@
+@use "@angular/material" as mat;
+@use "../gmat-typography/typography" as typography;
+@import 'src/styles/colors/colors';
+
+.mat-form-field-appearance-outline {
+  & .mat-form-field-infix {
+    padding: 13px 0 19px 5px;
+  }
+
+  &.mat-focused {
+    & .mat-form-field-outline-thick {
+      color: white;
+    }
+  }
+
+  & .mat-form-field-outline {
+    border-radius: 12px;
+    color: white;
+    background-color: white;
+  }
+
+  & .mat-form-field-outline-start {
+    border: none !important;
+    min-width: 10px !important;
+  }
+
+  & .mat-form-field-outline-end {
+    border: none !important;
+  }
+}
+
+input.mat-input-element {
+  @include mat.typography-level(typography.$custom-typography-config, body-1);
+  color: $default-text-color;
+
+  &::placeholder {
+    color: $gray-500;
+  }
+}

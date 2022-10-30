@@ -1,0 +1,38 @@
+<a [routerLink]="[bike?.id]">
+  <div class="container flex-column">
+    <div
+      class="container__thumbnail"
+      [ngClass]="{ 'container__thumbnail--no-border': bike?.thumb }">
+      <div *ngIf="bike?.manufacturer_name" class="container__thumbnail-label absolute">
+        <span class="container__thumbnail-label-text gmat-body-1">
+          {{ bike?.manufacturer_name }}
+        </span>
+      </div>
+
+      <div class="container__thumbnail-wrapper justify-center">
+        <img
+          class="container__thumbnail-wrapper-image transition-in"
+          src="{{ bike?.thumb ? bike?.thumb : 'assets/images/no-image.png' }}"
+          alt="" />
+      </div>
+    </div>
+
+    <span class="container__title gmat-headline w-fit transition-in">{{
+      bike?.frame_model | bikeField
+    }}</span>
+
+    <div class="container__info flex-column">
+      <span class="gmat-body-1 bold"
+        >Year: <span class="gmat-body-1">{{ bike?.year | bikeField }}</span>
+      </span>
+
+      <span class="gmat-body-1 bold"
+        >Status: <span class="gmat-body-1">{{ bike?.status | bikeField }}</span>
+      </span>
+
+      <span class="gmat-body-1 bold"
+        >Colors: <span class="gmat-body-1">{{ bike?.frame_colors | bikeField }}</span>
+      </span>
+    </div>
+  </div>
+</a>

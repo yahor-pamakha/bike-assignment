@@ -1,0 +1,45 @@
+<div class="container flex-column justify-center align-center">
+  <div class="container__body justify-between align-center w-100">
+    <img src="assets/images/forever-bike.jpg" alt="" />
+
+    <div class="container__body-content flex-column align-center text-center">
+      <span class="container__body-content-title gmat-headline block">
+        See which bikes are available in your city
+      </span>
+
+      <div class="container__body-content-search flex align-center">
+        <form class="container__body-content-search-form">
+          <mat-form-field class="container__body-content-search-form-field" appearance="outline">
+            <input
+              type="text"
+              placeholder="Choose city"
+              matInput
+              (keydown.enter)="onSearchButtonClick($event)"
+              [formControl]="locationFormControl"
+              [matAutocomplete]="auto" />
+            <img
+              class="container__body-content-search-form-field-icon absolute"
+              src="assets/icons/search.svg"
+              alt="" />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+                (click)="onSearchButtonClick()">
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+
+        <button
+          class="container__body-content-search-button gmat-subheading-1"
+          (click)="onSearchButtonClick()">
+          View bikes
+        </button>
+      </div>
+    </div>
+
+    <img src="assets/images/forward-bike.jpg" alt="" />
+  </div>
+</div>

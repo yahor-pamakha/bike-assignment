@@ -1,0 +1,42 @@
+<app-spinner [spin]="isLoading">
+  <div class="container flex-column">
+    <a class="router-link" routerLink="/">
+      <div class="container__navigation flex">
+        <img src="assets/icons/arrow.svg" alt="" />
+        <span class="gmat-subheading-1">Back to bikes</span>
+      </div>
+    </a>
+
+    <div class="container__body flex">
+      <img
+        class="container__body-image"
+        src="{{
+          detailedBike?.large_img ? detailedBike?.large_img : 'assets/images/no-image-large.png'
+        }}"
+        alt=""
+        [ngClass]="{ 'container__body-image--no-border': detailedBike?.large_img }" />
+
+      <div class="container__body-content flex-column">
+        <div class="container__body-content-header flex-column">
+          <span class="container__body-content-header-title gmat-display-1">
+            {{ detailedBike?.frame_model }}
+          </span>
+          <span class="container__body-content-header-manufacturer gmat-body-1">
+            {{ detailedBike?.description }}
+          </span>
+        </div>
+
+        <div class="container__body-content-info justify-between wrap">
+          <div
+            class="container__body-content-info-item flex-column"
+            *ngFor="let item of bikeInfoItems">
+            <span class="gmat-subheading-1">{{ item.title }}</span>
+            <span class="gmat-body-1">
+              {{ !detailedBike ? '' : (detailedBike[item.field] | bikeField) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-spinner>

@@ -1,0 +1,24 @@
+<app-spinner [spin]="isLoading">
+  <div class="container flex-column">
+    <app-search-input-section
+      (clickSearchButtonEvent)="onSearchButtonClick($event)"></app-search-input-section>
+
+    <div
+      #target
+      class="container__content flex-column"
+      [ngClass]="{ 'container__content--hidden': !bikes.length }">
+      <span class="container__content-title gmat-title">{{ searchCount }} bikes found</span>
+
+      <div class="container__content-body flex wrap">
+        <app-bike-tile *ngFor="let bike of bikes" [bike]="bike"></app-bike-tile>
+      </div>
+
+      <mat-paginator
+        [length]="searchCount"
+        [pageSize]="loadBikesParams.itemsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChange($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</app-spinner>
