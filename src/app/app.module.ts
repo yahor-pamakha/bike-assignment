@@ -12,6 +12,7 @@ import { metaReducers, reducers } from './app.state';
 import { BikeEffects } from '@store/effects/bike.effects';
 import { environment } from 'src/environments/environment';
 import { HomePageModule } from './pages/home-page/home-page.module';
+import { AppointmentPageModule } from './pages/appointment-page/appointment-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { HomePageModule } from './pages/home-page/home-page.module';
     HttpClientModule,
     MaterialModule,
     HomePageModule,
+    AppointmentPageModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([BikeEffects]),

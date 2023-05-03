@@ -1,0 +1,89 @@
+@import 'src/styles/colors/colors';
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 600px;
+}
+
+.container {
+  display: flex;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  &__chat {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 600px;
+    width: 800px;
+
+    &-message {
+        display: flex;
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+
+        &-text {
+          white-space: pre-wrap;
+        }
+
+        &--gpt {
+            background-color: #e8e8e8;
+        }
+    }
+
+    &-input {
+        margin-top: auto;
+        margin-bottom: -20px;
+        margin-left: 10px;
+    }
+  }
+
+  &__heading {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__subheading {
+    font-size: 16px;
+    margin-bottom: 15px;
+
+    &-test {
+      white-space: pre-wrap;
+    }
+  }
+
+  &__form {
+    display: flex;
+    gap: 30px;
+
+    &-field {
+      ::ng-deep {
+        .mat-form-field-flex {
+          margin-bottom: -5px;
+        }
+      }
+    }
+  }
+
+  &__button {
+    max-width: 200px;
+    height: 40px;
+    margin-top: 5px;
+  }
+}

@@ -7,10 +7,15 @@ const routes: Routes = [
     redirectTo: 'bikes',
     pathMatch: 'full',
   },
+  // {
+  //   path: 'bikes',
+  //   loadChildren: () =>
+  //     import('./pages/home-page/home-page.module').then(module => module.HomePageModule),
+  // },
   {
-    path: 'bikes',
+    path: 'appointment',
     loadChildren: () =>
-      import('./pages/home-page/home-page.module').then(module => module.HomePageModule),
+      import('./pages/appointment-page/appointment-page.module').then(module => module.AppointmentPageModule),
   },
   {
     path: 'bikes/:bikeId',

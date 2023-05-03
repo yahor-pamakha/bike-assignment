@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="container__left">
+    <span class="container__heading">Field planning & available time slots</span>
+
+    <span class="container__subheading">Here you can plan a service appointment</span>
+    
+    <form class="container__form" [formGroup]="appointmentForm">
+      <mat-form-field class="container__form-field">
+        <mat-label>Customer name</mat-label>
+        <input matInput placeholder="Type customer name" [formControl]="appointmentForm.controls.customerName">
+      </mat-form-field>
+
+      <button class="container__button" mat-raised-button color="primary" [disabled]="enableChat" (click)="letsChat()">Let's chat!</button>
+      <button class="container__button" mat-raised-button color="primary" [disabled]="!enableChat" (click)="getAppointments()">Get appointments</button>
+    </form>
+
+    <app-spinner [spin]="isLoading">
+      <div *ngIf="enableChat" class="container__chat">
+        <div #chatContainerEl class="chat-container">
+          <div class="container__chat-message" [ngClass]="{ 'container__chat-message--gpt': message.sender === 'Chat' }" *ngFor="let message of messages$ | async">
+            <span class="container__message-sender">
+              {{ message.sender }}:
+            </span>
+            <span [innerHTML]="getSanitizedHtml(message.text)" class="container__chat-message-text">
+            </span>
+          </div>
+        </div>
+        <mat-form-field class="container__chat-input" appearance="outline">
+          <input #chatInputEl matInput placeholder="Send a message" [disabled]="isLoading" [formControl]="appointmentForm.controls.chatInput" (keyup.enter)="sendMessage()">
+        </mat-form-field>
+      </div>
+    </app-spinner>
+  </div>
+  <div *ngIf="appointments" class="container__right">
+    <span class="container__heading">Appointments overview</span>
+    <span class="container__subheading-test" [innerHTML]="getSanitizedHtml(appointments)"></span>
+  </div>
+</div>

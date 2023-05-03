@@ -12,7 +12,8 @@
     mat-spinner {
       position: absolute;
       inset: 0;
-      margin: auto;
+      margin-left: 380px;
+      margin-top: 260px;
 
       ::ng-deep circle {
         stroke: $blue-700;
