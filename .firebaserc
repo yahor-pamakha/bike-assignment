@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "bike-assignment-a65a4"
-  }
+  },
+  "targets": {
+    "bike-assignment-a65a4": {
+      "hosting": {
+        "app": [
+          "gpt-appointments"
+        ],
+        "gpt-appointments-c1cf5": [
+          "gpt-appointments-c1cf5"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
