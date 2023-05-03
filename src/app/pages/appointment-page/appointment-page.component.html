@@ -30,6 +30,23 @@
         </mat-form-field>
       </div>
     </app-spinner>
+    <div *ngIf="enableChat" class="tips">
+      <span style="margin-bottom: 5px;">
+        Tips:
+      </span>
+      <span>
+        1. 📅 You can use ChatGPT to plan a store appointment
+      </span>
+      <span>
+        2. 💬 "I want to book an appointment" is a nice conversation starter 
+      </span>
+      <span>
+        3. 🐱‍💻 Don't try to break it
+      </span>
+      <span>
+        4. 🤷‍♂ We are sure that you will try to break it anyway
+      </span>
+    </div>
   </div>
   <div *ngIf="appointments" class="container__right">
     <span class="container__heading">Appointments overview</span>
